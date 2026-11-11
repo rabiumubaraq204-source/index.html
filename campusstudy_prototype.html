@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#173b32">
+<title>CampusStudy — Student Prototype</title>
+<style>
+:root{--green:#173b32;--mint:#dff4e9;--lime:#b7e4c7;--ink:#182521;--muted:#68766f;--paper:#f6f8f5;--white:#fff;--line:#e1e8e2;--gold:#f4c95d}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:var(--green);color:white;padding:22px 18px 26px;border-radius:0 0 24px 24px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-weight:850;letter-spacing:-.4px;font-size:20px}.tag{font-size:11px;background:#ffffff1c;padding:6px 9px;border-radius:99px}
+h1{font-size:27px;line-height:1.15;margin:24px 0 8px;max-width:340px;letter-spacing:-.8px}header p{color:#d8e7df;margin:0;max-width:340px;font-size:14px}
+main{max-width:760px;margin:auto;padding:16px 14px 38px}.notice{font-size:12px;color:#53675d;background:#edf5ef;padding:10px 12px;border-radius:12px;margin-bottom:14px}
+.nav{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 18px}.nav button{border:1px solid var(--line);background:white;border-radius:13px;padding:12px 4px;font-weight:700;color:var(--muted);font-size:13px}.nav button.active{background:var(--green);color:white;border-color:var(--green)}
+.panel{display:none}.panel.active{display:block}.section-head{display:flex;align-items:end;justify-content:space-between;gap:10px;margin:0 0 13px}.section-head h2{margin:0;font-size:20px;letter-spacing:-.4px}.section-head small{color:var(--muted)}
+.card{background:white;border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 3px 12px #19382b08}.card h3{margin:0 0 7px;font-size:16px}.muted{color:var(--muted);font-size:13px}.pill{display:inline-block;background:var(--mint);color:#245c45;font-weight:750;font-size:11px;padding:5px 8px;border-radius:99px;margin-bottom:9px}
+.note-body{font-size:14px}.note-body h4{margin:14px 0 5px}.note-body ul{padding-left:20px;margin-top:5px}
+button.primary{border:0;border-radius:12px;background:var(--green);color:white;font-weight:750;padding:12px 15px;font-size:14px;cursor:pointer}button.secondary{border:1px solid var(--line);border-radius:12px;background:white;color:var(--green);font-weight:750;padding:10px 13px;cursor:pointer}
+select,input{width:100%;padding:11px 12px;border:1px solid #d7e1d9;border-radius:11px;background:white;font:inherit;margin-top:5px;color:var(--ink)}label{display:block;font-size:13px;font-weight:700;margin:12px 0 4px}
+.question{font-weight:750;margin:6px 0 12px}.option{display:flex;align-items:flex-start;gap:9px;padding:11px;border:1px solid var(--line);border-radius:12px;margin:8px 0;font-size:14px;cursor:pointer}.option input{width:auto;margin:3px 0 0}.feedback{margin-top:12px;padding:12px;border-radius:12px;font-size:13px;display:none}.feedback.show{display:block}.good{background:#e6f7ed;color:#205b3c}.bad{background:#fff1df;color:#764b13}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.result{background:var(--green);color:white;border-radius:16px;padding:16px;margin-top:14px}.result strong{font-size:30px;display:block;letter-spacing:-1px}.result small{color:#d8e7df}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:10px 15px 26px}
+@media(min-width:620px){header{padding:28px calc((100% - 720px)/2 + 20px) 34px}h1{font-size:34px}.nav button{font-size:14px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid2 .card{margin-bottom:0}}
+</style>
+</head>
+<body>
+<header>
+  <div class="top"><div class="brand">📗 CampusStudy</div><span class="tag">EARLY PROTOTYPE</span></div>
+  <h1>Your next semester starts with one good study session.</h1>
+  <p>Study notes, practise questions and track your grades — in one simple place.</p>
+</header>
+<main>
+  <div class="notice">Demo version: sample learning content only. Your entries stay in this page and are not uploaded or saved to an account.</div>
+  <nav class="nav" aria-label="Main features">
+    <button class="active" data-tab="notes">📚 Notes</button>
+    <button data-tab="cbt">✍️ CBT Practice</button>
+    <button data-tab="cgpa">🧮 CGPA</button>
+  </nav>
+
+  <section id="notes" class="panel active">
+    <div class="section-head"><h2>Course materials</h2><small>Sample content</small></div>
+    <div class="card">
+      <span class="pill">BIOLOGY · INTRODUCTION</span>
+      <h3>Introduction to the Cell</h3>
+      <p class="muted">A short sample note to demonstrate how learning materials could be organised.</p>
+      <div class="note-body">
+        <h4>What is a cell?</h4>
+        <p>A cell is the basic structural and functional unit of life. Some organisms consist of one cell, while others are made up of many cells.</p>
+        <h4>Key cell structures</h4>
+        <ul><li><b>Cell membrane:</b> controls the movement of substances into and out of the cell.</li><li><b>Nucleus:</b> contains most of the cell's genetic material in eukaryotic cells.</li><li><b>Mitochondria:</b> are important sites of ATP production during aerobic respiration.</li><li><b>Ribosomes:</b> are responsible for protein synthesis.</li></ul>
+        <h4>Quick revision</h4><p>Try to explain the function of each structure in your own words before attempting the CBT section.</p>
+      </div>
+    </div>
+    <div class="card"><h3>Next step for a real launch</h3><p class="muted">Choose one department and level, then add materials you have permission to share. Label each course clearly and verify every note before publishing.</p></div>
+  </section>
+
+  <section id="cbt" class="panel">
+    <div class="section-head"><h2>CBT practice</h2><small id="qcount">Question 1 of 3</small></div>
+    <div class="card">
+      <span class="pill">BIOLOGY · SAMPLE QUIZ</span>
+      <div class="question" id="question">Which cell structure is mainly responsible for protein synthesis?</div>
+      <div id="options"></div>
+      <div id="feedback" class="feedback" aria-live="polite"></div>
+      <div style="display:flex;justify-content:space-between;gap:10px;margin-top:14px"><button class="secondary" id="resetQuiz">Restart</button><button class="primary" id="checkAnswer">Check answer</button><button class="primary" id="nextQ" style="display:none">Next</button></div>
+      <p class="muted" id="scoreline" style="margin-bottom:0">Answer all questions to see your score.</p>
+    </div>
+  </section>
+
+  <section id="cgpa" class="panel">
+    <div class="section-head"><h2>CGPA calculator</h2><small>4.0 or 5.0 scale</small></div>
+    <div class="card">
+      <p class="muted">Enter each course's unit and grade. This calculator uses the common Nigerian 5-point scale by default. Confirm your university's grading system before relying on the result.</p>
+      <label for="scale">Grading scale</label>
+      <select id="scale"><option value="5">5-point scale (A=5)</option><option value="4">4-point scale (A=4)</option></select>
+      <div id="courses">
+        <div class="row course"><div><label>Course 1 units</label><input type="number" min="1" max="10" value="3" class="units"></div><div><label>Grade</label><select class="grade"><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div></div>
+        <div class="row course"><div><label>Course 2 units</label><input type="number" min="1" max="10" value="2" class="units"></div><div><label>Grade</label><select class="grade"><option>A</option><option>B</option><option selected>C</option><option>D</option><option>E</option><option>F</option></select></div></div>
+      </div>
+      <button class="secondary" id="addCourse" style="margin-top:12px">+ Add course</button>
+      <button class="primary" id="calculate" style="margin-top:12px;width:100%">Calculate GPA</button>
+      <div class="result" id="result" aria-live="polite"><small>Weighted GPA</small><strong>4.20 / 5.00</strong><small>Demo result — change the course grades and calculate.</small></div>
+      <p class="muted">GPA = total (grade points × course units) ÷ total course units. CGPA needs results from all included semesters, weighted by their units.</p>
+    </div>
+  </section>
+</main>
+<footer>CampusStudy · Prototype 0.1 · Built to test the idea, not yet a live student service.</footer>
+<script>
+document.querySelectorAll('.nav button').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b===btn));
+ document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===btn.dataset.tab));
+}));
+const qs=[
+ {q:'Which cell structure is mainly responsible for protein synthesis?',a:['Mitochondrion','Ribosome','Cell membrane','Lysosome'],correct:1,why:'Ribosomes build proteins by joining amino acids according to instructions from messenger RNA.'},
+ {q:'Which structure controls what enters and leaves the cell?',a:['Cell membrane','Nucleus','Ribosome','Chromosome'],correct:0,why:'The cell membrane is selectively permeable and helps regulate movement into and out of the cell.'},
+ {q:'Which molecule carries hereditary information in most living organisms?',a:['Starch','DNA','Glucose','Water'],correct:1,why:'DNA stores genetic information used in growth, function and inheritance.'}
+];
+let qi=0,answers=[null,null,null],checked=false;
+function renderQ(){checked=false;const q=qs[qi];document.getElementById('qcount').textContent=`Question ${qi+1} of ${qs.length}`;document.getElementById('question').textContent=q.q;document.getElementById('options').innerHTML=q.a.map((a,i)=>`<label class="option"><input type="radio" name="answer" value="${i}" ${answers[qi]===i?'checked':''}> <span>${String.fromCharCode(65+i)}. ${a}</span></label>`).join('');document.getElementById('feedback').className='feedback';document.getElementById('feedback').textContent='';document.getElementById('checkAnswer').style.display='';document.getElementById('nextQ').style.display='none';document.getElementById('scoreline').textContent='Answer all questions to see your score.';}
+document.getElementById('checkAnswer').addEventListener('click',()=>{const selected=document.querySelector('input[name="answer"]:checked');if(!selected){alert('Choose an answer first.');return;}answers[qi]=Number(selected.value);checked=true;const q=qs[qi],ok=answers[qi]===q.correct,fb=document.getElementById('feedback');fb.className='feedback show '+(ok?'good':'bad');fb.textContent=(ok?'Correct! ':'Not quite. Correct answer: '+q.a[q.correct]+'. ')+q.why;document.getElementById('checkAnswer').style.display='none';document.getElementById('nextQ').style.display='';if(qi===qs.length-1){const score=answers.reduce((s,a,i)=>s+(a===qs[i].correct?1:0),0);document.getElementById('nextQ').textContent='Finish';document.getElementById('scoreline').textContent=`Score so far: ${score}/${qs.length}`;}});
+document.getElementById('nextQ').addEventListener('click',()=>{if(qi<qs.length-1){qi++;renderQ();}else{const score=answers.reduce((s,a,i)=>s+(a===qs[i].correct?1:0),0);document.getElementById('feedback').className='feedback show good';document.getElementById('feedback').textContent=`Quiz complete — you scored ${score}/${qs.length}. Restart to try again.`;document.getElementById('nextQ').style.display='none';document.getElementById('scoreline').textContent='Quiz completed.';}});
+document.getElementById('resetQuiz').addEventListener('click',()=>{qi=0;answers=[null,null,null];renderQ();});
+const grades5={A:5,B:4,C:3,D:2,E:1,F:0},grades4={A:4,B:3,C:2,D:1,E:0,F:0};
+document.getElementById('addCourse').addEventListener('click',()=>{const wrap=document.createElement('div');wrap.className='row course';wrap.innerHTML='<div><label>Course units</label><input type="number" min="1" max="10" value="3" class="units"></div><div><label>Grade</label><select class="grade"><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></div>';document.getElementById('courses').appendChild(wrap);});
+document.getElementById('calculate').addEventListener('click',()=>{const scale=Number(document.getElementById('scale').value),map=scale===5?grades5:grades4;let points=0,units=0,valid=true;document.querySelectorAll('.course').forEach(c=>{const u=Number(c.querySelector('.units').value),g=c.querySelector('.grade').value;if(!Number.isFinite(u)||u<=0){valid=false;return;}points+=map[g]*u;units+=u;});const el=document.getElementById('result');if(!valid||units===0){el.innerHTML='<small>Please enter a valid unit value for every course.</small>';return;}const gpa=points/units;el.innerHTML=`<small>Weighted GPA</small><strong>${gpa.toFixed(2)} / ${scale.toFixed(2)}</strong><small>${units} total course units · Based on the grades entered</small>`;});
+renderQ();
+</script>
+</body>
+</html>
